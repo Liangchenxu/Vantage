@@ -1,3 +1,5 @@
+pane-privacy-title2 = 隐私与安全
+
 librewolf-footer = 有用的链接
 pane-librewolf-title = Vantage
 category-librewolf =
