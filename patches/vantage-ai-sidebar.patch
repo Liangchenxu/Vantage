@@ -53,6 +53,7 @@
 +      },
 +    ],
 +    // --- 国际 AI ---
+     [
        "https://claude.ai/new",
        {
          iconUrl: "chrome://browser/content/genai/assets/brands/claude.svg",
