@@ -13,9 +13,8 @@ ChromeUtils.defineLazyGetter(this, "L10n", () => {
 });
 
 Preferences.addAll([
-  // AI Sidebar
-  { id: "browser.ml.chat.enabled", type: "bool" },
-  { id: "browser.ai.control.sidebarChatbot", type: "string" },
+  // AI Sidebar (browser.ml.chat.enabled 由 librewolf-config.mjs SettingGroupManager 注册)
+  // browser.ai.control.sidebarChatbot 同理，不在此重复 addAll
   // Update check
   { id: "vantage.updateCheck.enabled", type: "bool" },
   // IPv6
