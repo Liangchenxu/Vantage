@@ -74,7 +74,11 @@ var gLibrewolfPane = {
         Services.prefs.getBoolPref("browser.ml.chat.enabled", false)
       )
     );
-    // vantage-update-checkbox 使用 preference="vantage.updateCheck.enabled" 内置绑定，无需 JS
+    setBoolSyncListeners(
+      "vantage-update-checkbox",
+      ["vantage.updateCheck.enabled"],
+      [true],
+    );
     setBoolSyncListeners(
       "librewolf-extension-update-checkbox",
       ["extensions.update.autoUpdateDefault", "extensions.update.enabled"],
