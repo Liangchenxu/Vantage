@@ -322,6 +322,14 @@ var browserPromise = new Promise((resolve, reject) => {
           provider: lazy.GenAI.getProviderId(),
         });
       });
+      const provider = lazy.GenAI.chatProviders.get(lazy.providerPref);
+      const summarizeContainer = document.getElementById("summarize-btn-container");
+      if (provider?.supportAutoSubmit) {
+        summarizeContainer.hidden = false;
+      } else {
+        summarizeContainer.hidden = true;
+      }
+
       document
         .getElementById("summarize-button")
         .addEventListener("click", async () => {
@@ -405,6 +413,7 @@ function showOnboarding(length) {
           action: { type: ACTIONS.CHATBOT_SELECT, config },
           id: config.id,
           label: config.name,
+          icon: config.iconUrl,
           tooltip: { string_id: config.tooltipId },
         })),
         // Default to nothing selected
