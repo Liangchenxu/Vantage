@@ -296,8 +296,8 @@ main() {
   green "📦 当前根目录下的所有打包产物:"
   ls -lh vantage-* 2>/dev/null || yellow "  (未找到产物)"
   echo ""
-  green "📋 校验和文件:"
-  ls -lh *.sha512sum 2>/dev/null || yellow "  (未找到校验和文件)"
+  green "📋 SHA256 校验和文件 (sha256sums):"
+  ls -lh sha256sums 2>/dev/null || yellow "  (未找到 sha256sums)"
   echo ""
 
   if [[ ${#failed[@]} -eq 0 ]]; then

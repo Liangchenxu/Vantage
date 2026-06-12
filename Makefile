@@ -57,7 +57,7 @@ help :
 	@echo "  build       - Build LibreWolf (requires bootstrapped build environment)."
 	@echo "  package     - Package LibreWolf (requires build)."
 	@echo "  package-all - Package as deb/rpm/AppImage/tar.gz (Linux only)."
-	@echo "  checksum    - Generate sha256/sha512 checksums for all packages."
+	@echo "  checksum    - Generate sha256sums for all packages."
 	@echo "  run         - Run LibreWolf (requires build)."
 	@echo ""
 	@echo "  check-patchfail - check patches for errors."
