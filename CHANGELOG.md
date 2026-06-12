@@ -1,3 +1,64 @@
+# Vantage 151.0.4-1 更新日志
+
+## 上游合并
+
+- 基于 **Firefox 151.0.4** / **LibreWolf 151.0.4-1**
+- 合并 LibreWolf 上游 7 个新 patch（权限、EME、扩展管理、网络错误页等）
+- 移除已废弃的 JXL×2、arm、bootstrap 补丁
+- 移除 FF151 已不需要的 libc++ 编译修复
+
+## 新功能
+
+### 自动更新检查
+- 每次启动自动检查新版本，**无需手动操作**
+- 发现新版本时在浏览器顶部显示通知横幅（"发现新版本：Vantage x.x.x"）
+- 支持一键跳转下载页面 / 忽略当前版本
+- 已忽略的版本不会重复提示
+- 默认开启，可在 `about:preferences#librewolf` 中关闭
+
+### 默认浏览器检查
+- 恢复 Firefox 原生默认浏览器检测功能
+
+## 修复
+
+### librewolf.cfg 语法修复
+- 修复 `NetUtil.asyncFetch` 回调函数参数内多余分号导致的 SyntaxError
+
+### Firefox 151 ESM 模块迁移适配
+- `NetUtil.jsm` → `NetUtil.sys.mjs`
+- 导入方式适配 `ChromeUtils.importESModule`
+- 适配 autoconfig 沙箱环境限制（Components/XHR/fetch 不可用）
+- 修复 JSON 解析导致的通知栏乱码
+
+### about:debugging 图标
+- 侧边栏和 runtime 面板的 LibreWolf logo 替换为 Vantage V 盾图标
+
+### pref-pane 设置面板
+- 修复 AI 供应商图标不显示
+- 修复国产 AI 供应商列表不加载
+- 修复隐私与安全页面英文显示
+- 修复 checkbox 勾选后刷新复位
+- 移除重复 pref 注册导致的异常
+
+### 增强跟踪保护
+- 修复说明文字丢失
+
+## 打包
+
+- Linux：输出 tar.xz、tar.gz、deb、rpm、AppImage、便携版 tar.gz
+- Windows：输出 .exe 安装包
+- 所有产物统一计算 SHA256 校验和，写入 `sha256sums` 文件
+- 7zSFX 品牌文件自动集成
+
+---
+
+## 升级注意事项
+
+**从 150.x 升级的开发者：**
+- `settings/librewolf.cfg` 中更新检查逻辑已完全重写，注意不要覆盖
+- `patches/removed-patches/` 中新增 `hide-default-browser.patch`
+- `assets/patches.txt` 中已移除此 patch 条目
+- autoconfig 沙箱限制详细记录在 `MEMORY.md`
 # Vantage Browser 更新日志
 
 ## v150.0-1 — 2026-04-30
