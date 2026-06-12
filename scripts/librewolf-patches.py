@@ -105,7 +105,7 @@ def librewolf_patches():
 
     # 统一转为 LF 行尾，避免 CRLF patch 在 Linux 下失败
     print("-> Converting all source files to LF line endings...")
-    exec('find . -type f -name "*.cpp" -o -name "*.h" -o -name "*.c" -o -name "*.js" -o -name "*.nsi" -o -name "*.nsh" -o -name "*.rc" -o -name "*.py" | xargs -r dos2unix -q 2>/dev/null; true')
+    exec('find . -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.c" -o -name "*.js" -o -name "*.nsi" -o -name "*.nsh" -o -name "*.rc" -o -name "*.py" -o -name "Makefile.in" -o -name "*.in" \) | xargs -r dos2unix -q 2>/dev/null; true')
 
     # read lines of .txt file into 'patches'
     with open('../assets/patches.txt'.format(version), "r") as f:
