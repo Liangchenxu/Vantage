@@ -8,3 +8,8 @@ vantage-*.tar.xz
 *.rpm
 *.AppImage
 *.portable.tar.gz
+
+# build artifacts
+rpm_build/
+AppDir/
+deb_build/
